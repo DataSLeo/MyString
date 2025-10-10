@@ -21,7 +21,10 @@ enum ErrorMyString {
     MYSTRING_PHRASE_NOT_INITIALIZATED,
 
     /*Trying to clear an already cleared String.*/
-    MYSTRING_STRING_ALREADY_FREE
+    MYSTRING_STRING_ALREADY_FREE,
+
+    /*Trying to initialize an already initialized String.*/
+    MYSTRING_STRING_ALREADY_INITIALIZED
 };
 
 
@@ -29,6 +32,7 @@ struct MyString {
     char* phrase;
     int size;
     enum ErrorMyString id_error;
+    int initialized;
 };
 
 
@@ -39,7 +43,7 @@ struct MyString {
 
 @return enum ErrorMyString.
 
-Expected error: MYSTRING_PHRASE_NOT_INITIALIZATED (1).
+Expected error: MYSTRING_PHRASE_NOT_INITIALIZATED, MYSTRING_STRING_ALREADY_INITIALIZED.
 */
 enum ErrorMyString init_string(struct MyString *object_string); 
 
@@ -51,7 +55,7 @@ enum ErrorMyString init_string(struct MyString *object_string);
 
 @return enum ErrorMyString.
 
-Expected error: MYSTRING_STRING_ALREADY_FREE (2).
+Expected error: MYSTRING_STRING_ALREADY_FREE.
 */
 enum ErrorMyString del_string(struct MyString *object_string);
 
