@@ -3,11 +3,12 @@
 
 void init_string(struct MyString *object_string) {
     
-    object_string->phrase = (char*) calloc(0, sizeof(char));
+    // Allocing one Byte '\0'
+    object_string->phrase = (char*) calloc(1, sizeof(char));
     object_string->size = 0;
     object_string->id_error = 0;
 
-    if(object_string == NULL) object_string->id_error = 1;
+    if(object_string->phrase == NULL) object_string->id_error = 1;
 
 }
 
