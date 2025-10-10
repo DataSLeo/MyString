@@ -1,6 +1,6 @@
 // A simple example to how initiate a string and delete it.
 
-#include "../include/mystring.h"
+#include "mystring.h"
 
 
 int main () {

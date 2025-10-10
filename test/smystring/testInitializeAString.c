@@ -1,7 +1,7 @@
 #include "stdio.h"
 #include <criterion/criterion.h>
 
-#include "../include/mystring.h"
+#include "mystring.h"
 
 
 void testInitializeAString();
@@ -13,7 +13,6 @@ int main () {
 
     return 0;
 }
-
 
 
 void testInitializeAString() {
