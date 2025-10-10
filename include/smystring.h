@@ -1,7 +1,6 @@
 #ifndef __SMYSTRING_H__
 #define __SMYSTRING_H__
 
-
 /* 
 CREATED: 2025-10-09
 CREATED BY: LEONARDO ALVES
@@ -11,9 +10,18 @@ BRIEF: This header has the objective to create the basic struct to works my stri
 */
 
 
+/* 
+@brief Enum of Errors for My String. 
+*/
 enum ErrorMyString {
+    /*There is no error.*/
     MYSTRING_NONE = 0,
-    MYSTRING_PHRASE_NOT_INITIALIZATED = 1
+
+    /*The String cannot be initialized.*/
+    MYSTRING_PHRASE_NOT_INITIALIZATED,
+
+    /*Trying to clear an already cleared String.*/
+    MYSTRING_STRING_ALREADY_FREE
 };
 
 
@@ -29,9 +37,11 @@ struct MyString {
 
 @param *object_string is the struct MyString.
 
-@return void.
+@return enum ErrorMyString.
+
+Expected error: MYSTRING_PHRASE_NOT_INITIALIZATED (1).
 */
-void init_string(struct MyString *object_string); 
+enum ErrorMyString init_string(struct MyString *object_string); 
 
 
 /*
@@ -39,8 +49,10 @@ void init_string(struct MyString *object_string);
 
 @param *object_string is the struct MyString.
 
-@return void.
+@return enum ErrorMyString.
+
+Expected error: MYSTRING_STRING_ALREADY_FREE (2).
 */
-void del_string(struct MyString *object_string);
+enum ErrorMyString del_string(struct MyString *object_string);
 
 #endif
