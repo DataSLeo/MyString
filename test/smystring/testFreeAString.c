@@ -50,6 +50,6 @@ void testFreeAStringErrorNone() {
 
     del_string(&string);
 
-    cr_assert(string.id_error == NONE);
+    cr_assert(string.id_error == MYSTRING_NONE);
 
 }

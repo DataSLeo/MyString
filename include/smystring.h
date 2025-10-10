@@ -3,8 +3,8 @@
 
 
 enum ErrorMyString {
-    NONE = 0,
-    PHRASE_NOT_INITIALIZATED = 1
+    MYSTRING_NONE = 0,
+    MYSTRING_PHRASE_NOT_INITIALIZATED = 1
 };
 
 

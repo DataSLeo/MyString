@@ -7,9 +7,9 @@ void init_string(struct MyString *object_string) {
     object_string->phrase = (char*) calloc(1, sizeof(char));
     object_string->size = 0;
 
-    object_string->id_error = NONE;
+    object_string->id_error = MYSTRING_NONE;
 
-    if(object_string->phrase == NULL) object_string->id_error = PHRASE_NOT_INITIALIZATED;
+    if(object_string->phrase == NULL) object_string->id_error = MYSTRING_PHRASE_NOT_INITIALIZATED;
 
 }
 
@@ -23,6 +23,6 @@ void del_string(struct MyString *object_string) {
     }
 
     object_string->size = 0;
-    object_string->id_error = NONE;
+    object_string->id_error = MYSTRING_NONE;
 
 }
