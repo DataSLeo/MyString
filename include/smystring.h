@@ -14,7 +14,4 @@ struct MyString {
 void init_string(struct MyString *object_string); 
 
 
-
-#include "smystring.c"
-
 #endif
