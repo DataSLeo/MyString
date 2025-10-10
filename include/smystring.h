@@ -18,5 +18,7 @@ struct MyString {
 // Function to initialize a String. It's should called always when starts works with String.
 void init_string(struct MyString *object_string); 
 
+// Function to delete a String.
+void del_string(struct MyString *object_string);
 
 #endif

@@ -13,3 +13,16 @@ void init_string(struct MyString *object_string) {
 
 }
 
+void del_string(struct MyString *object_string) {
+
+    if(object_string->phrase != NULL) {
+
+        free(object_string->phrase);
+        object_string->phrase = NULL;
+
+    }
+
+    object_string->size = 0;
+    object_string->id_error = NONE;
+
+}

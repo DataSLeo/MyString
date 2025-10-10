@@ -1,7 +1,7 @@
 #include "stdio.h"
 #include <criterion/criterion.h>
 
-#include "../include/mystring.h"
+#include "include/mystring.h"
 
 
 void testInitializeAStringWithoutPhrase();
