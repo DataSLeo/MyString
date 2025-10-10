@@ -17,7 +17,7 @@ int counter_string(char* buff) {
 
     return length;
 
-};
+}
 
 enum ErrorMyString initwp_string(struct MyString *object_string, char* phrase) {
 
@@ -37,7 +37,22 @@ enum ErrorMyString initwp_string(struct MyString *object_string, char* phrase) {
     object_string->phrase[size_phrase] = '\0';
     object_string->size = size_phrase;
     object_string->id_error = MYSTRING_NONE;
-    
+
     return MYSTRING_NONE;
     
+}
+
+int equals_string(struct MyString object_string1, struct MyString object_string2) {
+    
+    int size_os1 = object_string1.size;
+    int size_os2 = object_string2.size;
+
+    if(size_os1 != size_os2) return 0;
+
+    for(int i = 0; i < size_os1; i++) {
+        if(object_string1.phrase[i] != object_string2.phrase[i]) return 0; 
+    }
+
+    return 1;
+
 }

@@ -34,5 +34,14 @@ Expected errors: MYSTRING_PHRASE_NOT_INITIALIZATED.
 enum ErrorMyString initwp_string(struct MyString *object_string, char* phrase);
 
 
+/* 
+@brief verify if two strings differents are equals.
+
+@param object_string1 first string.
+@param object_string2 second string. 
+
+@return 1 if are equals else 0.
+*/
+int equals_string(struct MyString object_string1, struct MyString object_string2);
 
 #endif
