@@ -20,4 +20,19 @@ It's works until find the special character \0.
 */
 int counter_string(char* buff);
 
+
+/* 
+@brief initialize string with a phrase.
+
+@param object_string it's address of MyString.
+@param phrase it's the phrase who will put in object_string. 
+
+@return enum ErrorMyString.
+
+Expected errors: MYSTRING_PHRASE_NOT_INITIALIZATED.
+*/
+enum ErrorMyString initwp_string(struct MyString *object_string, char* phrase);
+
+
+
 #endif
