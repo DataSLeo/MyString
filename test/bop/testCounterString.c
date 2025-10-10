@@ -4,27 +4,39 @@
 #include "mystring.h"
 
 /* 
-Cenaries:
+SCENARIES:
 
-1. The length of string is zero
-2. The length of string is variable
+1. The length of char* is zero 
+2. The length of char* is variable
+
+3. The char* buff is not initializated 
+    PS: There is a problem in this scenario, because when char* buff is not initialized with a value it generates an 
+    unexpected value that there is not way to handle. 
+
+4. The String is NULL
 
 */
 
 
 void testCounterStringIsZero();
 void testCounterStringIsVariable();
+// void testCounterStringIsNotInitialized();
+void testCounterStringIsNull();
 
 
 int main() {
 
-    printf("Testing: CounterStringIsZero...");
     testCounterStringIsZero();
-    printf(" PASSED\n");
+    printf("testCounterStringIsZero passed\n");
 
-    printf("Testing: CounterStringIsVariable...");
     testCounterStringIsVariable();
-    printf(" PASSED\n");
+    printf("testCounterStringIsZero passed\n");
+
+    // testCounterStringIsNotInitialized();
+    // printf("testCounterStringIsNotInitialized passed\n");
+
+    testCounterStringIsNull();
+    printf("testCounterStringIsNull passed\n");
 
     return 0;
 }
@@ -53,4 +65,26 @@ void testCounterStringIsVariable() {
     return;
 }
 
+// void testCounterStringIsNotInitialized() {
+//     char* buff;
+//     int size;
+
+//     size = counter_string(buff);
+
+//     cr_assert_eq(size, 0);
+
+//     return;
+// }
+
+void testCounterStringIsNull() {
+    char *buff = NULL;
+    int size;
+
+    size = counter_string(buff);
+
+    cr_assert_eq(size, 0);
+
+    return;
+
+}
 

@@ -11,4 +11,6 @@ It's works until find the special character \0.
 */
 int counter_string(char* buff);
 
+
+
 #endif
