@@ -30,7 +30,7 @@ void testFreeAStringSizeIsZero() {
 
     del_string(&string);
 
-    cr_assert_eq(string.size, 0, "Error in size");
+    cr_assert_eq(string.size, 0);
 
 }
 
