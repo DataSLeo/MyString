@@ -4,6 +4,16 @@
 #include "mystring.h"
 
 
+/* 
+SCENARIES:
+
+1. After use del_string the size property must be Zero 
+2. After use del_string the phrase property must be Null
+3. After use del_string the id_error must be MYSTRING_NONE
+
+*/
+
+
 void testFreeAStringSizeIsZero();
 void testFreeAStringPhraseIsNull();
 void testFreeAStringErrorNone();

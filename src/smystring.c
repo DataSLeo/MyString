@@ -1,6 +1,5 @@
 #include "smystring.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 enum ErrorMyString init_string(struct MyString *object_string) {
 
