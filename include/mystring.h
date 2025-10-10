@@ -5,4 +5,6 @@
 #include "smystring.h"
 
 
+#include "bop_mystring.h"
+
 #endif
