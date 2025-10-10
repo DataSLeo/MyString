@@ -2,11 +2,16 @@
 #define __SMYSTRING_H__
 
 
+enum ErrorMyString {
+    NONE = 0,
+    PHRASE_NOT_INITIALIZATED = 1
+};
+
+
 struct MyString {
     char* phrase;
     int size;
-
-    int id_error;
+    enum ErrorMyString id_error;
 };
 
 
