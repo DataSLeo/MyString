@@ -1,12 +1,8 @@
 #include "smystring.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 enum ErrorMyString init_string(struct MyString *object_string) {
-
-    if(object_string->initialized) {
-        object_string->id_error = MYSTRING_STRING_ALREADY_INITIALIZED;
-        return MYSTRING_STRING_ALREADY_INITIALIZED;
-    }
 
     // Allocing one Byte '\0'
     object_string->phrase = (char*) calloc(1, sizeof(char));
@@ -14,12 +10,10 @@ enum ErrorMyString init_string(struct MyString *object_string) {
 
     if(object_string->phrase == NULL) {
         object_string->id_error = MYSTRING_PHRASE_NOT_INITIALIZATED;
-        object_string->initialized = 0;
         return MYSTRING_PHRASE_NOT_INITIALIZATED;
     }
 
     object_string->id_error = MYSTRING_NONE;
-    object_string->initialized = 1;
     return MYSTRING_NONE;
 
 }
@@ -39,6 +33,7 @@ enum ErrorMyString del_string(struct MyString *object_string) {
 
     }
 
+    object_string->id_error = MYSTRING_STRING_ALREADY_FREE;
     return MYSTRING_STRING_ALREADY_FREE;
 
 }
