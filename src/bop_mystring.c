@@ -78,3 +78,33 @@ enum ErrorMyString assign_string(struct MyString *origin, char *phrase) {
 
     return MYSTRING_NONE;
 }
+
+enum ErrorMyString concat_string(struct MyString *object_string, char* phrase){    
+    
+    // Mark id_error and length as undefined to ensure fresh execution
+    object_string->id_error = -1;
+    int length_tmp = object_string->length;
+    object_string->length = -1;
+
+
+    int length_phrase = counter_string(phrase);
+
+    int sum = length_phrase + length_tmp;
+    
+    object_string->phrase = (char*) realloc(object_string->phrase, (sum + 1) * sizeof(char));
+
+    if(object_string->phrase == NULL) {
+        object_string->id_error = MYSTRING_PHRASE_CANNOT_BE_REALLOC;
+        return MYSTRING_PHRASE_CANNOT_BE_REALLOC;
+    }
+
+    for(int i = 0; i < length_phrase; i++, length_tmp++) {
+        object_string->phrase[length_tmp] = phrase[i];
+    }
+
+    object_string->phrase[sum] = '\0';
+    object_string->length = sum;
+
+    object_string->id_error = MYSTRING_NONE;
+    return MYSTRING_NONE;
+}

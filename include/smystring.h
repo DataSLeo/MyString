@@ -30,6 +30,11 @@ enum ErrorMyString {
     * @brief Trying to clear an already MyString object. 
     */
     MYSTRING_STRING_ALREADY_FREE,
+
+    /** 
+    * @brief Reallocation memory fails. 
+    */
+    MYSTRING_PHRASE_CANNOT_BE_REALLOC
 };
 
 
