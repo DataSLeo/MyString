@@ -55,4 +55,7 @@ Expected error: MYSTRING_STRING_ALREADY_FREE.
 */
 enum ErrorMyString del_string(struct MyString *object_string);
 
+
+
+
 #endif

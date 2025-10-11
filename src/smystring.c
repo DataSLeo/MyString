@@ -18,6 +18,7 @@ enum ErrorMyString init_string(struct MyString *object_string) {
 
 }
 
+
 enum ErrorMyString del_string(struct MyString *object_string) {
 
     if(object_string->phrase != NULL) {
