@@ -18,7 +18,7 @@ It's works until find the special character \0.
 
 @return the length of the String.
 */
-int counter_string(char* buff);
+int counter_string(char *buff);
 
 
 /* 
@@ -29,9 +29,9 @@ int counter_string(char* buff);
 
 @return enum ErrorMyString.
 
-Expected errors: MYSTRING_PHRASE_NOT_INITIALIZATED.
+Expected error: MYSTRING_PHRASE_NOT_INITIALIZATED.
 */
-enum ErrorMyString initwp_string(struct MyString *object_string, char* phrase);
+enum ErrorMyString initwp_string(struct MyString *object_string, char *phrase);
 
 
 /* 
@@ -43,5 +43,18 @@ enum ErrorMyString initwp_string(struct MyString *object_string, char* phrase);
 @return 1 if are equals else 0.
 */
 int equals_string(struct MyString object_string1, struct MyString object_string2);
+
+
+/* 
+@brief assign a new String.
+
+@param origin origin String.
+@param phrase new phrase. 
+
+@return enum ErrorMyString
+
+Expected error: MYSTRING_PHRASE_NOT_INITIALIZATED.
+*/
+enum ErrorMyString assign_string(struct MyString *origin, char *phrase);
 
 #endif
