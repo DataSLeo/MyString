@@ -1,59 +1,55 @@
 #ifndef __BOP_MYSTRING_H__
 #define __BOP_MYSTRING_H__
 
-/* 
-CREATED: 2025-10-10
-CREATED BY: LEONARDO ALVES
-NAME: (Basic Operations) for My String
-
-BRIEF: This header has the objective to create basic operations for my string.
+/**
+* @date 2025-10-10
+* @author Leonardo Alves
+* @file bop_mystring.h
+* @brief Basic Operations for MyString
+* 
+* This header provides basic functions to manipulate MyString objects.
 */
 
 
-/* 
-@brief is an algorithm to finding the length of a String.
-It's works until find the special character \0.
-
-@param *buff it the String to be found the size.
-
-@return the length of the String.
+/**
+* @brief Returns the length of a null-terminated string.
+* 
+* @param buff Pointer to the string to measure.
+* 
+* @return Length of the string. Return 0 if buff is NULL.
 */
 int counter_string(char *buff);
 
 
-/* 
-@brief initialize string with a phrase.
-
-@param object_string it's address of MyString.
-@param phrase it's the phrase who will put in object_string. 
-
-@return enum ErrorMyString.
-
-Expected error: MYSTRING_PHRASE_NOT_INITIALIZATED.
+/** 
+* @brief initialize a MyString with given phrase.
+* 
+* @param object_string Pointer to the MyString object to initialize.
+* @param phrase String to copy into object_string. 
+*
+* @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZATED if memory allocation fails. 
 */
 enum ErrorMyString initwp_string(struct MyString *object_string, char *phrase);
 
 
-/* 
-@brief verify if two strings differents are equals.
+/** 
+* @brief Compares two MyString object for equality.
 
-@param object_string1 first string.
-@param object_string2 second string. 
+@param object_string1 First MyString object.
+@param object_string2 Second MyString object. 
 
-@return 1 if are equals else 0.
+@return 1 if the strings are equals, 0 otherwise.
 */
 int equals_string(struct MyString object_string1, struct MyString object_string2);
 
 
-/* 
-@brief assign a new String.
-
-@param origin origin String.
-@param phrase new phrase. 
-
-@return enum ErrorMyString
-
-Expected error: MYSTRING_PHRASE_NOT_INITIALIZATED.
+/**
+* @brief assign a new phrase to an existing MyString object.
+*
+* @param origin Pointer to the MyString object to modify.
+* @param phrase New string to assign.
+* 
+* @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZATED if memory allocation fails. 
 */
 enum ErrorMyString assign_string(struct MyString *origin, char *phrase);
 

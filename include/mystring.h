@@ -1,14 +1,15 @@
 #ifndef __MYSTRING_H__
 #define __MYSTRING_H__
 
-/* 
-CREATED: 2025-10-10
-CREATED BY: LEONARDO ALVES
-NAME: My String
-
-BRIEF: This header is start point of Framework. This will inclued all functions of MyString.
+/**
+* @date 2025-10-10
+* @author Leonardo Alves
+* @file mystring.h
+* @brief API MyString 
+*
+* This header is an interface who will included in your application.
 */
-    
+
 #include "smystring.h"
 #include "bop_mystring.h"
 

@@ -1,61 +1,77 @@
 #ifndef __SMYSTRING_H__
 #define __SMYSTRING_H__
 
-/* 
-CREATED: 2025-10-09
-CREATED BY: LEONARDO ALVES
-NAME: (Struct) for My String
-
-BRIEF: This header has the objective to create the basic struct to works my string.
+/** 
+* @date 2025-10-09
+* @author Leonardo Alves
+* @file smystring.h
+* @brief Struct for MyString
+* 
+* This header provides essentials functions to manipulate memory of MyString object.
 */
 
 
-/* 
-@brief Enum of Errors for My String. 
+/** 
+* @brief Enum of errors for MyString. 
 */
 enum ErrorMyString {
-    /*There is no error.*/
+    
+    /**
+    * @brief There is no error.
+    */
     MYSTRING_NONE = 0,
 
-    /*The String cannot be initialized.*/
+    /** 
+    * @brief Allocation memory fails.
+    */
     MYSTRING_PHRASE_NOT_INITIALIZATED,
 
-    /*Trying to clear an already cleared String.*/
+    /** 
+    * @brief Trying to clear an already MyString object. 
+    */
     MYSTRING_STRING_ALREADY_FREE,
 };
 
 
+/** 
+* @brief The struct of MyString. 
+*/
 struct MyString {
+    
+    /** 
+    * @brief The space that holds the string.
+    */
     char* phrase;
+
+    /**
+    * @brief Size of string.
+    */
     int size;
+
+    /** 
+    * @brief Stores the error of ErrorMyString.
+    */
     enum ErrorMyString id_error;
 };
 
 
-/*
-@brief initialize the struct MyString.
-
-@param *object_string is the struct MyString.
-
-@return enum ErrorMyString.
-
-Expected error: MYSTRING_PHRASE_NOT_INITIALIZATED.
+/**
+* @brief Return MyString object initialized, but whithout phrase.
+* 
+* @param object_string Pointer to the MyString object who will initialized.
+* 
+* @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZATED if memory allocation fails. 
 */
 enum ErrorMyString init_string(struct MyString *object_string); 
 
 
-/*
-@brief to free memory for struct MyString
-
-@param *object_string is the struct MyString.
-
-@return enum ErrorMyString.
-
-Expected error: MYSTRING_STRING_ALREADY_FREE.
+/**
+* @brief Free the memory of MyString object.
+*
+* @param object_string Pointer to the MyString object who will free.
+* 
+* @return MYSTRING_NONE on success, MYSTRING_STRING_ALREADY_FREE if your trying to clear an already MyString object.
 */
 enum ErrorMyString del_string(struct MyString *object_string);
-
-
-
 
 #endif
