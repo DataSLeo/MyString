@@ -46,7 +46,7 @@ struct MyString {
     /**
     * @brief Size of string.
     */
-    int size;
+    int length;
 
     /** 
     * @brief Stores the error of ErrorMyString.

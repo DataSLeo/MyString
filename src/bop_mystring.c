@@ -21,21 +21,21 @@ int counter_string(char *buff) {
 
 enum ErrorMyString initwp_string(struct MyString *object_string, char *phrase) {
 
-    int size_phrase = counter_string(phrase);
+    int length_phrase = counter_string(phrase);
 
-    object_string->phrase = (char*) calloc(size_phrase + 1, sizeof(char));
+    object_string->phrase = (char*) calloc(length_phrase + 1, sizeof(char));
 
     if(object_string->phrase == NULL) {
         object_string->id_error = MYSTRING_PHRASE_NOT_INITIALIZATED;
         return MYSTRING_PHRASE_NOT_INITIALIZATED;
     }
 
-    for(int i = 0; i < size_phrase; i++) {
+    for(int i = 0; i < length_phrase; i++) {
         object_string->phrase[i] = phrase[i];
     }
 
-    object_string->phrase[size_phrase] = '\0';
-    object_string->size = size_phrase;
+    object_string->phrase[length_phrase] = '\0';
+    object_string->length = length_phrase;
     object_string->id_error = MYSTRING_NONE;
 
     return MYSTRING_NONE;
@@ -44,12 +44,12 @@ enum ErrorMyString initwp_string(struct MyString *object_string, char *phrase) {
 
 int equals_string(struct MyString object_string1, struct MyString object_string2) {
     
-    int size_os1 = object_string1.size;
-    int size_os2 = object_string2.size;
+    int length_os1 = object_string1.length;
+    int length_os2 = object_string2.length;
 
-    if(size_os1 != size_os2) return 0;
+    if(length_os1 != length_os2) return 0;
 
-    for(int i = 0; i < size_os1; i++) {
+    for(int i = 0; i < length_os1; i++) {
         if(object_string1.phrase[i] != object_string2.phrase[i]) return 0; 
     }
 
@@ -59,21 +59,21 @@ int equals_string(struct MyString object_string1, struct MyString object_string2
 
 enum ErrorMyString assign_string(struct MyString *origin, char *phrase) {
     
-    int size_phrase = counter_string(phrase);
+    int length_phrase = counter_string(phrase);
     
-    origin->phrase = (char*) realloc((char*) origin->phrase, (size_phrase + 1) * sizeof(char));
+    origin->phrase = (char*) realloc((char*) origin->phrase, (length_phrase + 1) * sizeof(char));
     
     if(origin->phrase == NULL) {
         origin->id_error = MYSTRING_PHRASE_NOT_INITIALIZATED;
         return MYSTRING_PHRASE_NOT_INITIALIZATED;
     }
 
-    for(int i = 0; i < size_phrase; i++) {
+    for(int i = 0; i < length_phrase; i++) {
         origin->phrase[i] = phrase[i];
     }
 
-    origin->phrase[size_phrase] = '\0';
-    origin->size = size_phrase; 
+    origin->phrase[length_phrase] = '\0';
+    origin->length = length_phrase; 
     origin->id_error = MYSTRING_NONE;
 
     return MYSTRING_NONE;
