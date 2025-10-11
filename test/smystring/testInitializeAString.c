@@ -26,7 +26,7 @@ void testInitializeAStringNewString() {
     struct MyString string;
     init_string(&string);
 
-    cr_assert_eq(string.size, 0);     
+    cr_assert_eq(string.length, 0);     
     cr_assert_eq(string.id_error, MYSTRING_NONE);
 
 }

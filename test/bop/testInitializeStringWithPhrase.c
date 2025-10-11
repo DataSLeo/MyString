@@ -33,7 +33,7 @@ void testInitializeStringWithPhraseIsEmpty() {
     struct MyString string;
     initwp_string(&string, (char*)"");
 
-    cr_assert_eq(string.size, 0);
+    cr_assert_eq(string.length, 0);
     cr_assert_eq(string.phrase[0], '\0');
     cr_assert_eq(string.id_error, MYSTRING_NONE);
 
@@ -45,7 +45,7 @@ void testInitializeStringWithPhrase() {
     struct MyString string;
     initwp_string(&string, (char*)"hello, world!");
 
-    cr_assert_eq(string.size, 13);
+    cr_assert_eq(string.length, 13);
     cr_assert_eq(string.id_error, MYSTRING_NONE);
 
 }

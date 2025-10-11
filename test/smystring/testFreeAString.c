@@ -44,7 +44,7 @@ void testFreeAStringSizeIsZero() {
 
     del_string(&string);
 
-    cr_assert_eq(string.size, 0);
+    cr_assert_eq(string.length, 0);
 
     return;
 

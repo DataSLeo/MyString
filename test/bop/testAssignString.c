@@ -46,7 +46,7 @@ void testAssignStringHasASizeOfAnotherString() {
 
     assign_string(&origin, new_string.phrase);
 
-    cr_assert(origin.size == 13);
+    cr_assert(origin.length == 13);
 
     return;
 }
