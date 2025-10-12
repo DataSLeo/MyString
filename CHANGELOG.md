@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] - 2025-10-11
+### Added
+- New function `remasp_string` to remove all spaces from a string.
+- Unit test `test/bop/testRemoveAllSpacesString` to validate the `remasp_string` function.
+- Example `example/example06_removing_spaces` demonstrating the `remasp_string` function.
+
 ## [1.0.0] - 2025-10-11
 ### Added
 - Main struct `MyString`.
