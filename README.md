@@ -1,12 +1,31 @@
 # MyString
 
-MyString é um mini framework para trabalhar com Strings em C.
+**MyString** is a framework in **C** that offers a powerful way to manipulate Strings.
 
+> Project developed with a focus on learning software engineering in C, using TDD (Test-Driven Development), Doxygen documentation and semantic versioning (SemVer).
 
+---
 
-Para compilar use os seguintes passos:
+## Features
 
+- Initialize and safely free strings (`init_string`, `initwp_string`, `del_string`);
+- Assign and compare string values (`assign_string`, `equals_string`);
+- Character count (`counter_string`);
+- Concatenate two `MyString` objects (`concat_string`);
+- Handle errors internally using `id_error`;
+- Include usage examples for each feature (see `/example`);
+- Fully tested with **Criterion** and documented with **Doxygen**.
 
-1. Crie o object (.o) do source com o header: gcc -c src/smystring.c -Iinclude -o build/smystring.o
-2. Crie a lib estática (.a) com base nos objects (.o): ar rcs build/libsmystring.a build/smystring.o 
-3. Compile seu projeto com a biblioteca: gcc app.c -Iinclude -Lbuild -lsmystring
+---
+
+## Documentation
+
+To generate the documentation, you need to have **Doxygen** installed on your system.  
+Once installed, run the following command in your terminal:
+
+```bash
+doxygen Doxyfile
+```
+
+This command will create a new folder named `docs/`, where you can find the generated HTML documentation inside the `html/` subdirectory.
+To view it, open the `index.html` file in your browser.
