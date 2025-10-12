@@ -65,4 +65,13 @@ enum ErrorMyString assign_string(struct MyString *origin, char *phrase);
 enum ErrorMyString concat_string(struct MyString *object_string, char* phrase);
 
 
+/**
+* @brief Remove spaces in a MyString object initliazed.
+*
+* @param object_string Pointer to the MyString object.
+* 
+* @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZATED if memory allocation fails.  
+*/
+enum ErrorMyString remasp_string(struct MyString *object_string);
+
 #endif

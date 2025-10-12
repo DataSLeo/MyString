@@ -2,6 +2,7 @@
 #include "bop_mystring.h"
 #include <stdlib.h>
 
+
 int counter_string(char *buff) {
 
     int length = 0;
@@ -104,6 +105,56 @@ enum ErrorMyString concat_string(struct MyString *object_string, char* phrase){
 
     object_string->phrase[sum] = '\0';
     object_string->length = sum;
+
+    object_string->id_error = MYSTRING_NONE;
+    return MYSTRING_NONE;
+}
+
+enum ErrorMyString remasp_string(struct MyString *object_string) {
+
+    // Mark id_error and length as undefined to ensure fresh execution
+    object_string->id_error = -1;
+    int length_tmp = object_string->length;
+    object_string->length = -1;    
+
+    int how_many_spaces = 0; 
+
+    for(int i = 0; i < length_tmp; i++) {
+        if(object_string->phrase[i] == ' '){
+            how_many_spaces++;
+        }
+    }
+
+
+    int length_phrase_no_space = length_tmp - how_many_spaces;
+
+    char buff[length_phrase_no_space];
+
+    for(int i = 0, index_buff = 0; i < length_tmp; i++) {
+        if(object_string->phrase[i] != ' ') {
+            buff[index_buff] = object_string->phrase[i];
+            index_buff++;
+        }
+    }
+
+    // For more security 
+    free(object_string->phrase);
+    object_string->phrase = NULL;
+
+    
+    object_string->phrase = (char*) calloc(length_phrase_no_space + 1, sizeof(char));
+    
+    if(object_string->phrase == NULL) {
+        object_string->id_error = MYSTRING_PHRASE_NOT_INITIALIZATED;
+        return MYSTRING_PHRASE_NOT_INITIALIZATED;
+    }
+
+    for(int i = 0; i < length_phrase_no_space; i++) {
+        object_string->phrase[i] = buff[i];
+    }
+
+    object_string->phrase[length_phrase_no_space] = '\0';
+    object_string->length = length_phrase_no_space;
 
     object_string->id_error = MYSTRING_NONE;
     return MYSTRING_NONE;
