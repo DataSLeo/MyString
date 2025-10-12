@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.1] - 2025-10-11
+### Fixed
+- Minor corrections and improvements in `README.md` documentation.
+
 ## [1.1.0] - 2025-10-11
 ### Added
 - New function `remasp_string` to remove all spaces from a string.
