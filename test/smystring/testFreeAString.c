@@ -1,8 +1,8 @@
 #include <criterion/criterion.h>
 #include "mystring.h"
 
-
-/* SCENARIOS:
+/**
+ * SCENARIOS:
  *
  * 1. After use del_string the size property must be Zero 
  * 2. After use del_string the phrase property must be Null

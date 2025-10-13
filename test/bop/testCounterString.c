@@ -1,7 +1,7 @@
 #include <criterion/criterion.h>
 #include "mystring.h"
 
-/* 
+/**
  * SCENARIOS:
  * 
  * 1. The length of char* is zero 
@@ -40,5 +40,5 @@ Test(TestCounterString, IsNull) {
     length = counter_string(buff);
 
     cr_assert_eq(length, NULL, "Expected NULL, got %d", length);
-    
+
 }

@@ -1,9 +1,8 @@
 #include <criterion/criterion.h>
 #include "mystring.h"
 
-
 /**
- * SCENARIOS
+ * SCENARIOS:
  * 
  * 1. The return needs to be MYSTRING_NONE (0)
  * 2. If occurs all okay, the property id_error needs to be MYSTRING_NONE (0)

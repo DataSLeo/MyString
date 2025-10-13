@@ -1,7 +1,7 @@
 #include <criterion/criterion.h>
 #include "mystring.h"
 
-/* 
+/** 
  * SCENARIOS:
  *
  * 1. One of Strings compared has differents sizes

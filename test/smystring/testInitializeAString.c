@@ -1,7 +1,7 @@
 #include <criterion/criterion.h>
 #include "mystring.h"
 
-/* 
+/** 
  * SCENARIOS:
  * 
  * 1. Initialize a String and Verify it's properties (size = 0, id_error = 0).

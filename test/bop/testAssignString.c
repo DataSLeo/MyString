@@ -1,7 +1,7 @@
 #include <criterion/criterion.h>
 #include "mystring.h"
 
-/* 
+/**
  * SCENARIOS:
  * 
  * 1. When assign a new value in a String, the length must be the new String
