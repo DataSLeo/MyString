@@ -4,15 +4,16 @@
 
 enum ErrorMyString init_string(struct MyString *object_string) {
 
-    // Allocing one Byte '\0'
     object_string->phrase = (char*) calloc(1, sizeof(char));
-    object_string->length = 0;
 
     if(object_string->phrase == NULL) {
         object_string->id_error = MYSTRING_PHRASE_NOT_INITIALIZED;
         return MYSTRING_PHRASE_NOT_INITIALIZED;
     }
 
+    object_string->length = 0;
+    object_string->phrase[0] = '\0';
+    
     object_string->id_error = MYSTRING_NONE;
     return MYSTRING_NONE;
 
