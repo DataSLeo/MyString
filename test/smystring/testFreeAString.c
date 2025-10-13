@@ -1,88 +1,58 @@
-#include <stdio.h>
 #include <criterion/criterion.h>
-
 #include "mystring.h"
 
 
-/* 
-SCENARIES:
-
-1. After use del_string the size property must be Zero 
-2. After use del_string the phrase property must be Null
-3. After use del_string the id_error must be MYSTRING_NONE
-4. Try use del_string again makes a id_error 
+/* SCENARIOS:
+ *
+ * 1. After use del_string the size property must be Zero 
+ * 2. After use del_string the phrase property must be Null
+ * 3. After use del_string the id_error must be MYSTRING_NONE
+ * 4. Try use del_string again makes a id_error 
 */
 
 
-void testFreeAStringSizeIsZero();
-void testFreeAStringPhraseIsNull();
-void testFreeAStringErrorNone();
-void testFreeAStringAgainMakesAnError();
+Test(FreeAString, SizeIsZero) {
 
+    struct MyString object;
+    init_string(&object);
 
-int main () {
-    testFreeAStringSizeIsZero();
-    printf("testFreeAStringSizeIsZero passed\n");
+    del_string(&object);
 
-    testFreeAStringPhraseIsNull();
-    printf("testFreeAStringPhraseIsNull passed\n");
-
-    testFreeAStringErrorNone();
-    printf("testFreeAStringErrorNone passed\n");
-
-    testFreeAStringAgainMakesAnError();
-    printf("testFreeAStringAgainMakesAnError passed\n");
-
-    return 0;
+    cr_assert_eq(object.length, 0, "Expected 0, got %d", object.length);
+        
 }
 
+Test(FreeAString, PhraseIsNull) {
 
+    struct MyString object;
+    init_string(&object);
 
-void testFreeAStringSizeIsZero() {
-    struct MyString string;
-    init_string(&string);
+    del_string(&object);
 
-    del_string(&string);
-
-    cr_assert_eq(string.length, 0);
-
-    return;
+    cr_assert_eq(object.phrase, NULL, "Expected NULL, got %d", object.phrase);
 
 }
 
-void testFreeAStringPhraseIsNull() {
-    struct MyString string;
-    init_string(&string);
+Test(FreeAString, ErrorNone) {
 
-    del_string(&string);
+    struct MyString object;
+    init_string(&object);
 
-    cr_assert(string.phrase == NULL);
+    del_string(&object);
 
-    return;
-}
-
-void testFreeAStringErrorNone() {
-    struct MyString string;
-    init_string(&string);
-
-    del_string(&string);
-
-    cr_assert_eq(string.id_error, MYSTRING_NONE);
-
-    return;
+    cr_assert_eq(object.id_error, MYSTRING_NONE, "Expected MYSTRING_NONE (0), got %d", object.id_error);
 
 }
 
-void testFreeAStringAgainMakesAnError() {
-    struct MyString string;
-    init_string(&string);
+Test(FreeAString, AgainMakesAnError) {
 
-    del_string(&string);
+    struct MyString object;
+    init_string(&object);
 
-    del_string(&string);
+    del_string(&object);
 
-    cr_assert_eq(string.id_error, MYSTRING_PHRASE_ALREADY_RELEASED);
+    del_string(&object);
 
-    return;
+    cr_assert_eq(object.id_error, MYSTRING_PHRASE_ALREADY_RELEASED, "Expected an eror MYSTRING_PHRASE_ALREADY_RELEASED (2), got %d", object.id_error);
 
 }
