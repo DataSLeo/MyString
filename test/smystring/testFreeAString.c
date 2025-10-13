@@ -81,7 +81,7 @@ void testFreeAStringAgainMakesAnError() {
 
     del_string(&string);
 
-    cr_assert_eq(string.id_error, MYSTRING_STRING_ALREADY_FREE);
+    cr_assert_eq(string.id_error, MYSTRING_PHRASE_ALREADY_RELEASED);
 
     return;
 
