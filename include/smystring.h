@@ -22,9 +22,9 @@ enum ErrorMyString {
     MYSTRING_NONE = 0,
 
     /** 
-    * @brief Allocation memory fails.
+    * @brief Alocation memory fails.
     */
-    MYSTRING_PHRASE_NOT_INITIALIZATED,
+    MYSTRING_PHRASE_NOT_INITIALIZED,
 
     /** 
     * @brief Trying to clear an already MyString object. 
@@ -65,7 +65,7 @@ struct MyString {
 * 
 * @param object_string Pointer to the MyString object who will initialized.
 * 
-* @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZATED if memory allocation fails. 
+* @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZED if memory allocation fails. 
 */
 enum ErrorMyString init_string(struct MyString *object_string); 
 

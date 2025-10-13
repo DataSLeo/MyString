@@ -27,7 +27,7 @@ int counter_string(char *buff);
 * @param object_string Pointer to the MyString object to initialize.
 * @param phrase String to copy into object_string. 
 *
-* @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZATED if memory allocation fails. 
+* @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZED if memory allocation fails. 
 */
 enum ErrorMyString initwp_string(struct MyString *object_string, char *phrase);
 
@@ -70,7 +70,7 @@ enum ErrorMyString concat_string(struct MyString *object_string, char* phrase);
 *
 * @param object_string Pointer to the MyString object.
 * 
-* @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZATED if memory allocation fails.  
+* @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZED if memory allocation fails.  
 */
 enum ErrorMyString remasp_string(struct MyString *object_string);
 

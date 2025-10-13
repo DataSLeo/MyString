@@ -27,8 +27,8 @@ enum ErrorMyString initwp_string(struct MyString *object_string, char *phrase) {
     object_string->phrase = (char*) calloc(length_phrase + 1, sizeof(char));
 
     if(object_string->phrase == NULL) {
-        object_string->id_error = MYSTRING_PHRASE_NOT_INITIALIZATED;
-        return MYSTRING_PHRASE_NOT_INITIALIZATED;
+        object_string->id_error = MYSTRING_PHRASE_NOT_INITIALIZED;
+        return MYSTRING_PHRASE_NOT_INITIALIZED;
     }
 
     for(int i = 0; i < length_phrase; i++) {
@@ -145,8 +145,8 @@ enum ErrorMyString remasp_string(struct MyString *object_string) {
     object_string->phrase = (char*) calloc(length_phrase_no_space + 1, sizeof(char));
     
     if(object_string->phrase == NULL) {
-        object_string->id_error = MYSTRING_PHRASE_NOT_INITIALIZATED;
-        return MYSTRING_PHRASE_NOT_INITIALIZATED;
+        object_string->id_error = MYSTRING_PHRASE_NOT_INITIALIZED;
+        return MYSTRING_PHRASE_NOT_INITIALIZED;
     }
 
     for(int i = 0; i < length_phrase_no_space; i++) {
