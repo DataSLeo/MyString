@@ -34,7 +34,7 @@ enum ErrorMyString del_string(struct MyString *object_string) {
 
     }
 
-    object_string->id_error = MYSTRING_STRING_ALREADY_FREE;
-    return MYSTRING_STRING_ALREADY_FREE;
+    object_string->id_error = MYSTRING_PHRASE_ALREADY_RELEASED;
+    return MYSTRING_PHRASE_ALREADY_RELEASED;
 
 }

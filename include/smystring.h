@@ -29,7 +29,7 @@ enum ErrorMyString {
     /** 
     * @brief Trying to clear an already MyString object. 
     */
-    MYSTRING_STRING_ALREADY_FREE,
+    MYSTRING_PHRASE_ALREADY_RELEASED,
 
     /** 
     * @brief Reallocation memory fails. 
@@ -75,7 +75,7 @@ enum ErrorMyString init_string(struct MyString *object_string);
 *
 * @param object_string Pointer to the MyString object who will free.
 * 
-* @return MYSTRING_NONE on success, MYSTRING_STRING_ALREADY_FREE if your trying to clear an already MyString object.
+* @return MYSTRING_NONE on success, MYSTRING_PHRASE_ALREADY_RELEASED if your trying to clear an already MyString object.
 */
 enum ErrorMyString del_string(struct MyString *object_string);
 
