@@ -1,51 +1,35 @@
-#include <stdio.h>
 #include <criterion/criterion.h>
-
 #include "mystring.h"
 
-/* 
-SCENARIES:
-
-1. Phrase is empty and has \0
-2. String was filled correctly
-
-*/
-
-
-void testInitializeStringWithPhraseIsEmpty();
-void testInitializeStringWithPhrase();
+/** 
+ * SCENARIES:
+ * 
+ * 1. Phrase is empty and has \0
+ * 2. String was filled correctly
+ */
 
 
-int main() {
+Test(testInitializeStringWithPhrase, IsEmpty) {
 
-    testInitializeStringWithPhraseIsEmpty();
-    printf("testInitializeStringWithPhraseIsEmpty passed\n");
+    struct MyString object;
+    initwp_string(&object, (char*)"");
 
-    testInitializeStringWithPhrase();
-    printf("testInitializeStringWithPhrase passed\n");
+    cr_assert_eq(object.length, 0, "Expected 0, got %d", object.length);
+    cr_assert_eq(object.phrase[0], '\0', "Expected Null Terminator (\'\0\'), got %c", object.phrase[0]);
+    cr_assert_eq(object.id_error, MYSTRING_NONE, "Expected MYSTRING_NONE (0), got %d", object.id_error);
 
+    del_string(&object);
 
-    return 0;
 }
 
-void testInitializeStringWithPhraseIsEmpty() {
+Test(testInitializeStringWithPhase, Phrase) {
 
-    struct MyString string;
-    initwp_string(&string, (char*)"");
+    struct MyString object;
+    initwp_string(&object, (char*)"hello, world!");
 
-    cr_assert_eq(string.length, 0);
-    cr_assert_eq(string.phrase[0], '\0');
-    cr_assert_eq(string.id_error, MYSTRING_NONE);
+    cr_assert_eq(object.length, 13, "Expected 13, got %d", object.length);
+    cr_assert_eq(object.id_error, MYSTRING_NONE, "Expected MYSTRING_NONE (0), got %d", object.id_error);
 
-    return;
-}
-
-void testInitializeStringWithPhrase() {
-
-    struct MyString string;
-    initwp_string(&string, (char*)"hello, world!");
-
-    cr_assert_eq(string.length, 13);
-    cr_assert_eq(string.id_error, MYSTRING_NONE);
+    del_string(&object);
 
 }
