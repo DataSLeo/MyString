@@ -1,46 +1,33 @@
-#include "stdio.h"
 #include <criterion/criterion.h>
-
 #include "mystring.h"
 
 /* 
-SCENARIES:
-
-1. Initialize a String and Verify it's properties (size = 0, id_error = 0).
-2. The phrase must to have null-terminator in.
-
-*/
-
-
-void testInitializeAStringNewString();
-void testInitializeAStringNullTerminator();
-
-int main () {
-    testInitializeAStringNewString();
-    printf("testInitializeAStringNewString passed\n");
-
-    testInitializeAStringNullTerminator();
-    printf("testInitializeAStringNullTerminator passed\n");
-
-    return 0;
-}
+ * SCENARIOS:
+ * 
+ * 1. Initialize a String and Verify it's properties (size = 0, id_error = 0).
+ * 2. The phrase must to have null-terminator in.
+ */
 
 
-void testInitializeAStringNewString() {
-    
-    struct MyString string;
-    init_string(&string);
+Test(TestInitializeAString, NewString) {
 
-    cr_assert_eq(string.length, 0);     
-    cr_assert_eq(string.id_error, MYSTRING_NONE);
+    struct MyString object;
+    init_string(&object);
+
+    cr_assert_eq(object.length, 0, "Expected 0, got %d", object.length);     
+    cr_assert_eq(object.id_error, MYSTRING_NONE, "Expected MYSTRING_NONE (0), got %d", object.id_error);
+
+    del_string(&object);
 
 }
 
-void testInitializeAStringNullTerminator() {
-    
-    struct MyString string;
-    init_string(&string);
+Test(TestInitializeAString, NullTerminator) {
 
-    cr_assert_eq(string.phrase[0], '\0');
+    struct MyString object;
+    init_string(&object);
+
+    cr_assert_eq(object.phrase[0], '\0', "Expected Null Terminator (\'\0\'), got %c", object.phrase[0]);
+
+    del_string(&object);
 
 }
