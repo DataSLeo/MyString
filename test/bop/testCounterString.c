@@ -1,90 +1,44 @@
-#include <stdio.h>
 #include <criterion/criterion.h>
-
 #include "mystring.h"
 
 /* 
-SCENARIES:
-
-1. The length of char* is zero 
-2. The length of char* is variable
-
-3. The char* buff is not initializated 
-    PS: There is a problem in this scenario, because when char* buff is not initialized with a value it generates an 
-    unexpected value that there is not way to handle. 
-
-4. The String is NULL
-
-*/
+ * SCENARIOS:
+ * 
+ * 1. The length of char* is zero 
+ * 2. The length of char* is variable
+ * 3. The String is NULL
+ */
 
 
-void testCounterStringIsZero();
-void testCounterStringIsVariable();
-// void testCounterStringIsNotInitialized();
-void testCounterStringIsNull();
+Test(TestCounterString, IsZero) {
 
-
-int main() {
-
-    testCounterStringIsZero();
-    printf("testCounterStringIsZero passed\n");
-
-    testCounterStringIsVariable();
-    printf("testCounterStringIsZero passed\n");
-
-    // testCounterStringIsNotInitialized();
-    // printf("testCounterStringIsNotInitialized passed\n");
-
-    testCounterStringIsNull();
-    printf("testCounterStringIsNull passed\n");
-
-    return 0;
-}
-
-
-void testCounterStringIsZero() {
     char *buff = (char*) "";
-    int size;
+    int length;
 
-    size = counter_string(buff);
+    length = counter_string(buff);
 
-    cr_assert_eq(size, 0);
-
-    return;
+    cr_assert_eq(length, 0, "Expected 0, got %d", length);
 
 }
 
-void testCounterStringIsVariable() {
+Test(TestCounterString, IsVariable) {
+
     char *buff = (char*) "Leonardo";
-    int size;
+    int length;
 
-    size = counter_string(buff);
+    length = counter_string(buff);
 
-    cr_assert_eq(size, 8);
+    cr_assert_eq(length, 8, "Expected 8, got %d", length);
 
-    return;
 }
 
-// void testCounterStringIsNotInitialized() {
-//     char* buff;
-//     int size;
+Test(TestCounterString, IsNull) {
 
-//     size = counter_string(buff);
-
-//     cr_assert_eq(size, 0);
-
-//     return;
-// }
-
-void testCounterStringIsNull() {
     char *buff = NULL;
-    int size;
+    int length;
 
-    size = counter_string(buff);
+    length = counter_string(buff);
 
-    cr_assert_eq(size, 0);
-
-    return;
-
+    cr_assert_eq(length, NULL, "Expected NULL, got %d", length);
+    
 }
-
