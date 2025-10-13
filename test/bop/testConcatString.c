@@ -1,19 +1,17 @@
-#include <stdio.h>
 #include <criterion/criterion.h>
-
 #include "mystring.h"
 
-/*
-SCENARIOS
-
-1. The sum between the length of MyString object empty and the phrase empty need to be Zero.
-2. If occurs all okay, return MYSTRING_NONE
-3. Had the sum between the length of MyString object and the phrase.
-4. The concat between MyString object and the phase need to be new MyString object with phrase.
-5. The return need be MYSTRING_NONE (0)
-6. The last character must be null terminated
-7. Multiple Concats
-*/
+/**
+ * SCENARIOS:
+ * 
+ * 1. The sum between the length of MyString object empty and the phrase empty need to be Zero.
+ * 2. If occurs all okay, return MYSTRING_NONE
+ * 3. Had the sum between the length of MyString object and the phrase.
+ * 4. The concat between MyString object and the phase need to be new MyString object with phrase.
+ * 5. The return need be MYSTRING_NONE (0)
+ * 6. The last character must be null terminated
+ * 7. Multiple Concats
+ */
 
 
 Test(ConcatString, SumLengthBetweenMyStringAndPhraseAllEmptyNeedToBeZero) {

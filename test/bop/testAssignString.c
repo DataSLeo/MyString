@@ -1,97 +1,83 @@
-#include <stdio.h>
 #include <criterion/criterion.h>
-
 #include "mystring.h"
 
-/* 
-SCENARIES:
-
-1. When assign a new value in a String, the length must be the new String
-2. When assign a new value in a String, the last character must be \0
-3. When assign a new value in a String, the content need to be equal new String
-4. When assign a new value in a String, it's return need to be MYSTRING_NONE
-*/
-
-
-void testAssignStringHasASizeOfAnotherString();
-void testAssignStringLastCharacterIsBackSlashZero();
-void testAssignStringNeedToBeEqualAnotherString();
-void testAssignStringReturnedNone();
+/**
+ * SCENARIOS:
+ * 
+ * 1. When assign a new value in a String, the length must be the new String
+ * 2. When assign a new value in a String, the last character must be \0
+ * 3. When assign a new value in a String, the content need to be equal new String
+ * 4. When assign a new value in a String, it's return need to be MYSTRING_NONE
+ */
 
 
-int main() {
+Test(AssignString, HasASizeOfAnotherString) {
 
-    testAssignStringHasASizeOfAnotherString();
-    printf("testAssignStringHasASizeOfAnotherString passed\n");
+    struct MyString main_object;
+    struct MyString new_object;
 
-    testAssignStringLastCharacterIsBackSlashZero();
-    printf("testAssignStringLastCharacterIsBackSlashZero passed\n");
+    initwp_string(&main_object, (char*)"");
+    initwp_string(&new_object, (char*)"hello, world!");    
 
-    testAssignStringNeedToBeEqualAnotherString();
-    printf("testAssignStringNeedToBeEqualAnotherString passed\n");
+    assign_string(&main_object, new_object.phrase);
 
-    testAssignStringReturnedNone();
-    printf("testAssignStringReturnedNone passed\n");
+    cr_assert_eq(main_object.length, 13, "Expected 13, got %d", main_object.length);
 
-    return 0;
+    del_string(&main_object);
+    del_string(&new_object);
+
 }
 
-void testAssignStringHasASizeOfAnotherString() {
 
-    struct MyString origin;
-    struct MyString new_string;
+Test(AssignString, LastCharacterIsBackSlashZero) {
 
-    initwp_string(&origin, (char*)"");
-    initwp_string(&new_string, (char*)"hello, world!");    
+    struct MyString main_object;
+    struct MyString new_object;
 
-    assign_string(&origin, new_string.phrase);
+    initwp_string(&main_object, (char*)"Kent Beck");
+    initwp_string(&new_object, (char*)"Bill Clinton");    
 
-    cr_assert(origin.length == 13);
+    assign_string(&main_object, new_object.phrase);
 
-    return;
+    cr_assert_eq(main_object.phrase[13], '\0', "Expected Null Terminator (\'\0\'), got %c", main_object.phrase[13]);
+
+    del_string(&main_object);
+    del_string(&new_object);
+
 }
 
-void testAssignStringLastCharacterIsBackSlashZero() {
+Test(AssignString, NeedToBeEqualAnotherString) {
 
-    struct MyString origin;
-    struct MyString new_string;
+    struct MyString main_object;
+    struct MyString new_object;
 
-    initwp_string(&origin, (char*)"Kent Beck");
-    initwp_string(&new_string, (char*)"Bill Clinton");    
-
-    assign_string(&origin, new_string.phrase);
-
-    cr_assert(origin.phrase[13] == '\0');
-
-    return;
-}
-
-void testAssignStringNeedToBeEqualAnotherString() {
-
-    struct MyString origin;
-    struct MyString new_string;
-
-    initwp_string(&origin, (char*)"Linus Torvalds");
-    initwp_string(&new_string, (char*)"Linux Debian");  
+    initwp_string(&main_object, (char*)"Linus Torvalds");
+    initwp_string(&new_object, (char*)"Linux Debian");  
     
-    assign_string(&origin, new_string.phrase);
+    assign_string(&main_object, new_object.phrase);
 
-    cr_assert(equals_string(origin, new_string) == 1);
+    int result = equals_string(main_object, new_object);
 
-    return;
+    cr_assert_eq(result, 1, "Expected true (1), got false (%d)", result);
+
+    del_string(&main_object);
+    del_string(&new_object);
+
 }
 
-void testAssignStringReturnedNone() {
+Test(AssignString, ReturnedNone) {
 
-    struct MyString origin;
-    struct MyString new_string;
+    struct MyString main_object;
+    struct MyString new_object;
 
-    initwp_string(&origin, (char*)"Spider Man");
-    initwp_string(&new_string, (char*)"Wolverine");  
+    initwp_string(&main_object, (char*)"Spider Man");
+    initwp_string(&new_object, (char*)"Wolverine");  
 
-    assign_string(&origin, new_string.phrase);
+    assign_string(&main_object, new_object.phrase);
 
-    cr_assert(origin.id_error == MYSTRING_NONE);
+    cr_assert_eq(main_object.id_error, MYSTRING_NONE, "Expected MYSTRING_NONE (0), got %d", main_object.id_error);
 
-    return;
+    del_string(&main_object);
+    del_string(&new_object);
+
 }
