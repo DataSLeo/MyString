@@ -13,14 +13,14 @@ SCENARIES:
 
 
 void testInitializeAStringNewString();
-void testInitializeAStringNullTermintor();
+void testInitializeAStringNullTerminator();
 
 int main () {
     testInitializeAStringNewString();
     printf("testInitializeAStringNewString passed\n");
 
-    testInitializeAStringNullTermintor();
-    printf("testInitializeAStringNullTermintor passed\n");
+    testInitializeAStringNullTerminator();
+    printf("testInitializeAStringNullTerminator passed\n");
 
     return 0;
 }
@@ -36,7 +36,7 @@ void testInitializeAStringNewString() {
 
 }
 
-void testInitializeAStringNullTermintor() {
+void testInitializeAStringNullTerminator() {
     
     struct MyString string;
     init_string(&string);
