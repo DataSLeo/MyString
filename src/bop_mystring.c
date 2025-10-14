@@ -65,8 +65,8 @@ enum ErrorMyString assign_string(struct MyString *origin, char *phrase) {
     origin->phrase = (char*) realloc((char*) origin->phrase, (length_phrase + 1) * sizeof(char));
     
     if(origin->phrase == NULL) {
-        origin->id_error = MYSTRING_PHRASE_CANNOT_BE_REALLOC;
-        return MYSTRING_PHRASE_CANNOT_BE_REALLOC;
+        origin->id_error = MYSTRING_PHRASE_CANNOT_BE_RELOCATED;
+        return MYSTRING_PHRASE_CANNOT_BE_RELOCATED;
     }
 
     for(int i = 0; i < length_phrase; i++) {
@@ -95,8 +95,8 @@ enum ErrorMyString concat_string(struct MyString *object_string, char* phrase){
     object_string->phrase = (char*) realloc(object_string->phrase, (sum + 1) * sizeof(char));
 
     if(object_string->phrase == NULL) {
-        object_string->id_error = MYSTRING_PHRASE_CANNOT_BE_REALLOC;
-        return MYSTRING_PHRASE_CANNOT_BE_REALLOC;
+        object_string->id_error = MYSTRING_PHRASE_CANNOT_BE_RELOCATED;
+        return MYSTRING_PHRASE_CANNOT_BE_RELOCATED;
     }
 
     for(int i = 0; i < length_phrase; i++, length_tmp++) {

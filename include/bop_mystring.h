@@ -49,7 +49,7 @@ int equals_string(struct MyString object_string1, struct MyString object_string2
 * @param origin Pointer to the MyString object to modify.
 * @param phrase New string to assign.
 * 
-* @return MYSTRING_NONE on success, MYSTRING_PHRASE_CANNOT_BE_REALLOC if memory relocation fails. 
+* @return MYSTRING_NONE on success, MYSTRING_PHRASE_CANNOT_BE_RELOCATED if memory relocation fails. 
 */
 enum ErrorMyString assign_string(struct MyString *origin, char *phrase);
 
@@ -60,7 +60,7 @@ enum ErrorMyString assign_string(struct MyString *origin, char *phrase);
 * @param object_string Pointer to the MyString object to concat.
 * @param phrase The phrase will be concated in the object_string.
 * 
-* @return MYSTRING_NONE on success, MYSTRING_PHRASE_CANNOT_BE_REALLOC if memory reallocation fails. 
+* @return MYSTRING_NONE on success, MYSTRING_PHRASE_CANNOT_BE_RELOCATED if memory relocation fails. 
 */
 enum ErrorMyString concat_string(struct MyString *object_string, char* phrase);
 
@@ -74,4 +74,4 @@ enum ErrorMyString concat_string(struct MyString *object_string, char* phrase);
 */
 enum ErrorMyString remasp_string(struct MyString *object_string);
 
-#endif
+#endif 
