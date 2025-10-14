@@ -32,9 +32,9 @@ enum ErrorMyString {
     MYSTRING_PHRASE_ALREADY_RELEASED,
 
     /** 
-    * @brief Reallocation memory fails. 
+    * @brief Relocation memory fails. 
     */
-    MYSTRING_PHRASE_CANNOT_BE_REALLOC
+    MYSTRING_PHRASE_CANNOT_BE_RELOCATED
 };
 
 
