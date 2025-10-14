@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.2] - 2025-10-13
+### Changed
+- Renamed enum constant `MYSTRING_PHRASE_CANNOT_BE_REALLOC` → `MYSTRING_PHRASE_CANNOT_BE_RELOCATED`.
+- Renamed enum constant `MYSTRING_STRING_ALREADY_FREE` → `MYSTRING_PHRASE_ALREADY_RELEASED`.
+- Renamed enum constant `MYSTRING_PHRASE_NOT_INITIALIZATED` → `MYSTRING_PHRASE_NOT_INITIALIZED`.
+- Updated the `init_string` function to properly add a null terminator at the end of the allocated string.
+- Refactored the following test files to remove the `main` function and adopt the standard `criterion/criterion.h` boilerplate:
+    - `testInitializeAString.c`
+    - `testFreeAString.c`
+    - `testAssignString.c`
+    - `testCounterString.c` 
+    - `testEqualString.c`
+    - `testInitializeStringWithPhrase.c`
+- Updated `README.md` with a function `remasp_string`.
+
+### Fixed
+- Fixed the `assign_string` function: previously returned `MYSTRING_PHRASE_NOT_INITIALIZATED`, now correctly returns `MYSTRING_PHRASE_CANNOT_BE_REALLOC`.
+
 ## [1.1.1] - 2025-10-11
 ### Fixed
 - Minor corrections and improvements in `README.md` documentation.
