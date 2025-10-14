@@ -1,6 +1,6 @@
 # MyString
 
-**MyString** is a framework in **C** that offers a powerful way to manipulate Strings.
+**MyString** is a library in **C** that offers a powerful way to manipulate Strings.
 
 > Project developed with a focus on learning software engineering in C, using TDD (Test-Driven Development), Doxygen documentation and semantic versioning (SemVer).
 
@@ -13,6 +13,7 @@
 - Character count (`counter_string`);
 - Concatenate two `MyString` objects (`concat_string`);
 - Handle errors internally using `id_error`;
+- Removing all spaces in the string (`remasp_string`);
 - Include usage examples for each feature (see `/example`);
 - Fully tested with **Criterion** and documented with **Doxygen**.
 
