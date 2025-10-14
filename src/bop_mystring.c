@@ -60,6 +60,11 @@ int equals_string(struct MyString object_string1, struct MyString object_string2
 
 enum ErrorMyString assign_string(struct MyString *origin, char *phrase) {
     
+    // Mark id_error and length as undefined to ensure fresh execution
+    origin->id_error = -1;
+    origin->length = -1;
+    
+
     int length_phrase = counter_string(phrase);
     
     origin->phrase = (char*) realloc((char*) origin->phrase, (length_phrase + 1) * sizeof(char));
