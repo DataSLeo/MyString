@@ -61,8 +61,8 @@ int equals_string(struct MyString object_string1, struct MyString object_string2
 enum ErrorMyString assign_string(struct MyString *origin, char *phrase) {
     
     // Mark id_error and length as undefined to ensure fresh execution
-    origin->id_error = -1;
-    origin->length = -1;
+    origin->id_error = ID_ERROR_RESETED;
+    origin->length = LENGTH_RESETED;
     
 
     int length_phrase = counter_string(phrase);
@@ -88,9 +88,9 @@ enum ErrorMyString assign_string(struct MyString *origin, char *phrase) {
 enum ErrorMyString concat_string(struct MyString *object_string, char* phrase){    
     
     // Mark id_error and length as undefined to ensure fresh execution
-    object_string->id_error = -1;
+    object_string->id_error = ID_ERROR_RESETED;
     int length_tmp = object_string->length;
-    object_string->length = -1;
+    object_string->length = LENGTH_RESETED;
 
 
     int length_phrase = counter_string(phrase);
@@ -118,9 +118,9 @@ enum ErrorMyString concat_string(struct MyString *object_string, char* phrase){
 enum ErrorMyString remasp_string(struct MyString *object_string) {
 
     // Mark id_error and length as undefined to ensure fresh execution
-    object_string->id_error = -1;
+    object_string->id_error = ID_ERROR_RESETED;
     int length_tmp = object_string->length;
-    object_string->length = -1;    
+    object_string->length = LENGTH_RESETED;    
 
     int how_many_spaces = 0; 
 

@@ -10,6 +10,15 @@
 * This header provides essentials functions to manipulate memory of MyString object.
 */
 
+/**
+ * @brief To indicate the id_error was reseted
+ */
+#define ID_ERROR_RESETED -1
+
+/**
+ * @brief To indicate the length was reseted
+ */
+#define LENGTH_RESETED -1
 
 /** 
 * @brief Enum of errors for MyString. 
