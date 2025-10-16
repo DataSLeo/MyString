@@ -15,9 +15,9 @@ FILESSRC = $(wildcard $(SRCDIR)/*.c)
 TOOBJECT = $(patsubst $(SRCDIR)/%.c, $(BUILDDIR)/%.o, $(FILESSRC))
 
 FILESTEST = $(wildcard $(TESTDIR)/**/*.c)
-TOMAKETEST = $(patsubst %.c, %.out, $(FILESTEST))
+TOTEST = $(patsubst %.c, %.out, $(FILESTEST))
 
-CLEANTEST = rm -rf $(TOMAKETEST)
+CLEANTEST = rm -rf $(TOTEST)
 
 
 
@@ -32,10 +32,10 @@ staticlib: dir $(TOOBJECT)
 dir: 
 	@mkdir -p $(BUILDDIR)
 
-tests: staticlib $(TOMAKETEST) 
+tests: staticlib $(TOTEST) 
 
-test: tests
-	@for t in $(TOMAKETEST); do \
+test: clean tests
+	@for t in $(TOTEST); do \
 		./$$t || exit 1; \
 	done
 	@$(CLEANTEST)
@@ -51,4 +51,4 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.c
 	@$(CC) $< $(FLAGINCLUDE) $(FLAGBUILD) $(CRITERION) $(MYSTRING) -o $@
 
 clean:
-	@rm -rf $(BUILDDIR) $(TOMAKETEST)
+	@rm -rf $(BUILDDIR) $(TOTEST)

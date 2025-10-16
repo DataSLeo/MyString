@@ -1,5 +1,8 @@
 TODO.md
-*.out
 docs/*
-*.o
+
+*.out
+
+build/*
 *.a
+*.o

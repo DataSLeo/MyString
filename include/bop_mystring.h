@@ -12,7 +12,7 @@
 
 
 /**
-* @brief Returns the length of a null-terminated string.
+* @brief Returns the length of a null terminated string.
 * 
 * @param buff Pointer to the string to measure.
 * 
@@ -55,7 +55,7 @@ enum ErrorMyString assign_string(struct MyString *origin, char *phrase);
 
 
 /**
-* @brief Concat a new phrase in a MyString object initliazed.
+* @brief Concatenates a new Phrase to an initialized MyString object.
 *
 * @param object_string Pointer to the MyString object to concat.
 * @param phrase The phrase will be concated in the object_string.
@@ -66,12 +66,23 @@ enum ErrorMyString concat_string(struct MyString *object_string, char* phrase);
 
 
 /**
-* @brief Remove spaces in a MyString object initliazed.
+* @brief Removes all spaces from an initialized MyString object.
 *
 * @param object_string Pointer to the MyString object.
 * 
 * @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZED if memory allocation fails.  
 */
 enum ErrorMyString remasp_string(struct MyString *object_string);
+
+
+/**
+* @brief Remove spaces and special character ('\\n', '\\t', '\\r') from the beggining of an initialized MyString object.
+*
+* @param object_string Pointer to the MyString object.
+* 
+* @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZED if memory allocation fails, MYSTRING_PHRASE_CANNOT_BE_RELOCATED if memory relocation fails.
+*/
+enum ErrorMyString lstrip_string(struct MyString *object_string); 
+
 
 #endif 
