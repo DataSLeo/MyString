@@ -22,6 +22,16 @@ int counter_string(char *buff);
 
 
 /** 
+* @brief Get the id_error of MyString object.
+* 
+* @param object_string The MyString object. 
+*
+* @return The id_error. 
+*/
+enum ErrorMyString gete_string(struct MyString object_string);
+
+
+/** 
 * @brief initialize a MyString with given phrase.
 * 
 * @param object_string Pointer to the MyString object to initialize.

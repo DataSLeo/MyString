@@ -20,6 +20,10 @@ int counter_string(char *buff) {
 
 }
 
+enum ErrorMyString gete_string(struct MyString object_string) {
+    return object_string.id_error;
+}
+
 enum ErrorMyString initwp_string(struct MyString *object_string, char *phrase) {
 
     int length_phrase = counter_string(phrase);
