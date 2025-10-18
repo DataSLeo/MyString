@@ -10,6 +10,7 @@ LIBSTATIC = libmystring.a
 BUILDDIR = build
 TESTDIR = test
 SRCDIR = src
+DOCDIR = docs
 
 FILESSRC = $(wildcard $(SRCDIR)/*.c)
 TOOBJECT = $(patsubst $(SRCDIR)/%.c, $(BUILDDIR)/%.o, $(FILESSRC))
@@ -23,7 +24,7 @@ CLEANTEST = rm -rf $(TOTEST)
 
 
 
-all: dir $(TOOBJECT) staticlib
+all: dir $(TOOBJECT) staticlib docs
 
 staticlib: dir $(TOOBJECT)
 	@ar rcs $(BUILDDIR)/$(LIBSTATIC) $(TOOBJECT)
@@ -40,8 +41,8 @@ test: clean tests
 	done
 	@$(CLEANTEST)
 
-
-
+docs:
+	@doxygen Doxyfile
 
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.c
@@ -51,4 +52,4 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.c
 	@$(CC) $< $(FLAGINCLUDE) $(FLAGBUILD) $(CRITERION) $(MYSTRING) -o $@
 
 clean:
-	@rm -rf $(BUILDDIR) $(TOTEST)
+	@rm -rf $(BUILDDIR) $(TOTEST) $(DOCDIR)

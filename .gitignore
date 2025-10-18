@@ -1,8 +1,15 @@
-TODO.md
+# Folders
+
+build/*
 docs/*
+
+
+# Executables
 
 *.out
 
-build/*
+
+# Objects and Statics Libraries
+
 *.a
 *.o

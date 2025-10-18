@@ -22,6 +22,16 @@ int counter_string(char *buff);
 
 
 /** 
+* @brief Get the id_error of MyString object.
+* 
+* @param object_string The MyString object. 
+*
+* @return The id_error. 
+*/
+enum ErrorMyString gete_string(struct MyString object_string);
+
+
+/**
 * @brief Get the phrase of MyString object.
 * 
 * @param object_string The MyString object. 
