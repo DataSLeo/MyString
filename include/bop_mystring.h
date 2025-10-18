@@ -31,6 +31,16 @@ int counter_string(char *buff);
 enum ErrorMyString gete_string(struct MyString object_string);
 
 
+/**
+* @brief Get the phrase of MyString object.
+* 
+* @param object_string The MyString object. 
+*
+* @return The phrase on success, Empty char pointer if not initialized phrase. 
+*/
+char *getp_string(struct MyString object_string);
+
+
 /** 
 * @brief initialize a MyString with given phrase.
 * 

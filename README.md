@@ -10,6 +10,7 @@
 
 - Initialize and safely free strings (`init_string`, `initwp_string`, `del_string`);
 - id_error's Getter (`gete_string`); 
+- Phase's Getter (`getp_string`); 
 - Assign and compare string values (`assign_string`, `equals_string`);
 - Character count (`counter_string`);
 - Concatenate two `MyString` objects (`concat_string`);

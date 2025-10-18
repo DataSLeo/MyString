@@ -23,6 +23,10 @@ int counter_string(char *buff) {
 enum ErrorMyString gete_string(struct MyString object_string) {
     return object_string.id_error;
 }
+  
+char *getp_string(struct MyString object_string) {
+    return object_string.phrase == NULL ? (char*) '\0' : object_string.phrase;
+}
 
 enum ErrorMyString initwp_string(struct MyString *object_string, char *phrase) {
 
